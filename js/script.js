@@ -1,6 +1,5 @@
 let is_open = false;
 function openNavbarMobile() {
-  console.log(is_open);
   if (!is_open) {
     $("#menu-icon").removeClass("bi-list");
     $("#menu-icon").addClass("bi-plus-lg");
