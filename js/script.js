@@ -7,6 +7,7 @@ function openNavbarMobile() {
     $("#menu-icon").addClass("close-menu-btn");
     $(".mobile-navigation-container").addClass("open");
     $("body").css("overflow-y", "hidden");
+    $(".mobile-navigation-overley").css("display","block")
     is_open = true;
   } else {
     $("#menu-icon").removeClass("bi-plus-lg");
@@ -14,9 +15,23 @@ function openNavbarMobile() {
     $("#menu-icon").removeClass("close-menu-btn");
     $(".mobile-navigation-container").removeClass("open");
     $("body").css("overflow-y", "scroll");
+    $(".mobile-navigation-overley").css("display","none")
     is_open = false;
   }
 }
+
+$("body").on("click",(e)=>{
+  if(e.target.className === "mobile-navigation-overley"){
+    $("#menu-icon").removeClass("bi-plus-lg");
+    $("#menu-icon").addClass("bi-list");
+    $("#menu-icon").removeClass("close-menu-btn");
+    $(".mobile-navigation-container").removeClass("open");
+    $("body").css("overflow-y", "scroll");
+    $(".mobile-navigation-overley").css("display","none")
+    is_open = false;
+  }
+})
+
 
 $(".open-menu-btn").on("click", () => {
   openNavbarMobile();
